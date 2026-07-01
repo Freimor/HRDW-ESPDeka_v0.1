@@ -1,0 +1,13 @@
+# Cursor MCP config (contains secrets like API tokens)
+.cursor/mcp.json
+
+# Build output
+build/
+sdkconfig
+sdkconfig.old
+
+# Editor / OS
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
