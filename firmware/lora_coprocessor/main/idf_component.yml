@@ -1,0 +1,3 @@
+## Managed components for the LORA coprocessor (ESP32-C3).
+dependencies:
+  espressif/led_strip: "^2.5.4"

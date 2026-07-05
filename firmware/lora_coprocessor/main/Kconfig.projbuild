@@ -1,0 +1,18 @@
+menu "ESPDeka LORA Coprocessor"
+
+    choice ESPDEKA_HOST_UART_PORT
+        prompt "Host UART (link to ESP32-P4 or bench adapter)"
+        default ESPDEKA_HOST_UART_PORT_0
+        help
+            UART0 (GPIO20/21) matches the left-edge RX/TX pads used for flashing.
+            UART1 (GPIO18/19) is the likely mapping for the top-edge RX2/TX2 pads —
+            verify on the P-3 V1.6 schematic before wiring to the jc4880p443.
+
+        config ESPDEKA_HOST_UART_PORT_0
+            bool "UART0 — left pads (GPIO20 RX / GPIO21 TX)"
+
+        config ESPDEKA_HOST_UART_PORT_1
+            bool "UART1 — RX2/TX2 pads (GPIO18 RX / GPIO19 TX)"
+    endchoice
+
+endmenu

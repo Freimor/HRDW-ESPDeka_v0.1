@@ -1,0 +1,10 @@
+## Managed dependencies for the board support package.
+## Pulled automatically by the ESP-IDF component manager on first build.
+dependencies:
+  idf: ">=5.3"
+  ## LVGL 9 rendering + LVGL glue for esp_lcd displays and touch panels.
+  espressif/esp_lvgl_port: "^2.4.0"
+  ## ST7701S panel driver with MIPI-DSI support.
+  espressif/esp_lcd_st7701: "^2.0.0"
+  ## GT911 capacitive touch controller driver.
+  espressif/esp_lcd_touch_gt911: "^1.1.0"

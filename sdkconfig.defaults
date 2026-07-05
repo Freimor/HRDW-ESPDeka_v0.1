@@ -1,0 +1,50 @@
+# -----------------------------------------------------------------------------
+# ESPDeka default project configuration (Stage 1.1)
+# Target: Guition JC4880P443C  (ESP32-P4 main core + ESP32-C6 radio co-processor)
+# These defaults are applied on a fresh build; tune further via `idf.py menuconfig`.
+# -----------------------------------------------------------------------------
+
+# --- Target -----------------------------------------------------------------
+CONFIG_IDF_TARGET="esp32p4"
+
+# --- Chip revision ----------------------------------------------------------
+# This board carries an early ESP32-P4 silicon (rev v1.3). IDF 5.5 defaults to
+# production revisions (>= v3.1), so explicitly enable support for revisions
+# below v3.0 and set the minimum to v1.0 (covers v1.0 - v1.99).
+CONFIG_ESP32P4_SELECTS_REV_LESS_V3=y
+CONFIG_ESP32P4_REV_MIN_100=y
+
+# --- Flash (module carries 16 MB NOR flash) ---------------------------------
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# --- Custom partition table -------------------------------------------------
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# --- PSRAM (module carries 32 MB, needed for LVGL frame buffers) ------------
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_SPEED_200M=y
+CONFIG_SPIRAM_XIP_FROM_PSRAM=y
+CONFIG_SPIRAM_FETCH_INSTRUCTIONS=y
+CONFIG_SPIRAM_RODATA=y
+
+# --- CPU / RTOS -------------------------------------------------------------
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=6144
+
+# --- Task Watchdog (keep enabled; long-running tasks must feed it) ----------
+CONFIG_ESP_TASK_WDT_INIT=y
+CONFIG_ESP_TASK_WDT_TIMEOUT_S=10
+
+# --- Log level --------------------------------------------------------------
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# --- LVGL (managed via esp_lvgl_port) ---------------------------------------
+CONFIG_LV_COLOR_DEPTH_16=y
+CONFIG_LV_USE_KEYBOARD=y
+CONFIG_LV_USE_TEXTAREA=y
+CONFIG_LV_FONT_MONTSERRAT_16=y
+CONFIG_LV_FONT_MONTSERRAT_20=y
+CONFIG_LV_FONT_DEFAULT_MONTSERRAT_16=y

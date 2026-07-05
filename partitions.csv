@@ -1,0 +1,7 @@
+# ESPDeka partition table (16 MB flash).
+# Single factory app for Stage 1.1. OTA layout will be introduced later (Key Feature #5).
+# Name,     Type, SubType,  Offset,   Size
+nvs,        data, nvs,      ,         24K
+phy_init,   data, phy,      ,         4K
+factory,    app,  factory,  ,         6M
+storage,    data, spiffs,   ,         1M
